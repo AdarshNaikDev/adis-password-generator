@@ -1,38 +1,92 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  /* background-color: #e0e5eb; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header-div{
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.sec-one{
+  background-color: #e0e5eb;
+  padding-bottom: 50px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-title{
+    
+    margin: 20px auto;
+    font-family: 'Poppins',sans-serif;
+    font-size: 90px;
+    color: #e0e5eb;
+    text-shadow: 
+    -8px -8px 12px rgba(255,255,255,0.4),
+    8px 8px 12px rgba(0,0,0,0.6);
+    caret-color:#262626;
+    outline: none;
+ 
+}
+
+
+.main-title:hover{
+  color: #ffff;
+}
+
+.input-text{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.text-pswd{
+  
+  width: 900px;
+  height: 45px;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 18px;
+
+  padding: 15px 5px 10px 20px;
+  box-shadow: inset 8px 8px 8px #cbced1,
+              inset -8px -8px 8px #ffffff;
+  border-radius: 20px;
+  color: black;
+  font-size: large;
+  transition: all 0.3s ease;
+  
+}
+
+.text-pswd:focus{
+  color: #555;
+  font-size: x-large;
+}
+
+.text-pswd::placeholder{
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+
+.text-pswd:focus::placeholder {
+  color: #999;
+}
+
+.btn-position{
+  width: fit-content;
+  margin: 20px auto;
+  
+}
+
+.main-div{
+  padding-bottom: 50px;
+}
+
+
+fieldset {
+  border: 2px solid #4CAF50;  /* Set border color for the fieldset */
+  padding: 10px;
+  width: 300px;
 }
