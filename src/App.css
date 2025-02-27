@@ -14,12 +14,16 @@
   padding-bottom: 50px;
 }
 
+.cursoor{
+  cursor: pointer;
+}
+
 .main-title{
     
     margin: 20px auto;
     font-family: 'Poppins',sans-serif;
     font-size: 90px;
-    color: #e0e5eb;
+    color: #ffff;
     text-shadow: 
     -8px -8px 12px rgba(255,255,255,0.4),
     8px 8px 12px rgba(0,0,0,0.6);
@@ -31,6 +35,7 @@
 
 .main-title:hover{
   color: #ffff;
+  color: #e0e5eb;
 }
 
 .input-text{
@@ -81,12 +86,176 @@
 }
 
 .main-div{
-  padding-bottom: 50px;
+  height: 100vh;
 }
 
 
 fieldset {
-  border: 2px solid #4CAF50;  /* Set border color for the fieldset */
+  border: 4px solid #71797E;  /* Set border color for the fieldset */
   padding: 10px;
-  width: 300px;
+  width: 600px;
+  margin: 30px auto;
+  border-radius: 8px;
 }
+
+.settings-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between rows */
+  padding: 20px 60px;
+  font-family: "Manrope", serif;
+  font-weight: 600;
+  color: #4d5255;
+}
+
+.settings-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Space between items */
+}
+
+.setting-item {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between label and input */
+  width: 250px;
+  padding-left: 20px;
+  justify-content: space-between;
+}
+
+.setting-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+/* Hide the default checkbox */
+.checkbox {
+  display: none;
+}
+
+/* Custom checkbox design */
+.custom-checkbox {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  border: 2px solid #ccc;
+  background-color: white;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Checkmark (hidden by default) */
+.custom-checkbox::before {
+  content: "✔";
+  font-size: 16px;
+  color: white;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+}
+
+/* Flashing circle animation (hidden initially) */
+.custom-checkbox::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background: rgba(0, 123, 255, 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+/* When checked, change background, show checkmark */
+.checkbox:checked + .custom-checkbox {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+/* Show checkmark */
+.checkbox:checked + .custom-checkbox::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Flash effect (circle disappears after animation) */
+.checkbox:checked + .custom-checkbox::after {
+  animation: flashEffect 0.4s ease-out;
+}
+
+@keyframes flashEffect {
+  0% {
+    width: 10px;
+    height: 10px;
+    opacity: 1;
+  }
+  100% {
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    display: none; /* Circle disappears completely */
+  }
+}
+
+.drop-down {
+  appearance: none; /* Removes default dropdown styling */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  
+  width: 70px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 10px;
+  background: #e0e5ec; /* Neumorphic background */
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 6px 6px 10px #b8b8b8, -6px -6px 10px #ffffff;
+  transition: all 0.3s ease;
+}
+
+/* When dropdown is clicked */
+.drop-down:focus {
+  box-shadow: inset 6px 6px 10px #b8b8b8, inset -6px -6px 10px #ffffff;
+}
+
+/* Dropdown arrow styling */
+.drop-down::after {
+  content: "▼";
+  color: black;
+  position: absolute;
+  right: 15px;
+  pointer-events: none;
+}
+
+/* Dropdown option styles */
+.drop-down option {
+  background: #e0e5ec;
+  color: #333;
+  padding: 10px;
+}
+
+.neumorphic-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.neumorphic-dropdown::after {
+  content: "▼"; /* Unicode for dropdown arrow */
+  font-size: 14px;
+  color: #666;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
