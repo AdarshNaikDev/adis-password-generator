@@ -4,10 +4,13 @@ import Button from './Componenets/Button'
 
 function PasswordGen() {
 
+    function genPassword(){
+        console.log("btn clicked")
+    }
 
 
     return (
-        <div className='main-div' style={{ backgroundColor: "#e0e5eb" }}>
+        <div className='main-div' >
             <div className='sec-one'>
                 <div className='header-div'>
                     <span className="main-title">ADI's PASSWORD </span>
@@ -18,7 +21,7 @@ function PasswordGen() {
             </div>
 
             <div className='btn-position'>
-                <Button btnName="Generate Random Password" />
+                <Button btnName="Generate Random Password"  genPassword={genPassword} />
             </div>
             <div className='legend-style'>
                 <fieldset>
@@ -47,13 +50,13 @@ function PasswordGen() {
 
                         {/* Second Row */}
                         <div className="settings-row">
-                            <div className="setting-item">
+                            <div className="setting-item ">
                                 Allow Uppercase (ABC)
                                 
                                 <input type="checkbox" className="checkbox" id="allowUpperCase" />
                                 <label htmlFor="allowUpperCase" className="custom-checkbox"></label>
                             </div>
-                            <div className="setting-item">
+                            <div className="setting-item ">
                                 Allow Lowercase (abc)
                                 
                                 <input type="checkbox" className="checkbox" id="allowLowerCase" />
@@ -61,8 +64,6 @@ function PasswordGen() {
                             </div>
                         </div>
 
-
-                        
                         {/* Third Row */}
                         <div className="settings-row">
                             <div className="setting-item">

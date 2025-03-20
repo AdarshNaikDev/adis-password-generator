@@ -1,5 +1,6 @@
 
 import './App.css';
+import './Mobile.css';
 import PasswordGen from './PasswordGen';
 
 
