@@ -23,6 +23,10 @@
     color: black;
     font-size: 18px !important;
     transition: all 0.3s ease;
+
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent text from wrapping */
+    text-overflow: ellipsis; /* Show "..." when overflowing */
     
   }
 
