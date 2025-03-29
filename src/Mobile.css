@@ -16,28 +16,34 @@ body{
     width: 100vw; /* Viewport width */
   max-width: 100%;
   margin: 0 auto;
+  height: 100vh;
 }
 
   .main-title{
-    font-size: 55px;
+    margin-top: 20px;
+    font-size: 2.5em
    
+  }
+
+  .input-text{
+    margin-top: 2.5em;
   }
 
   .text-pswd{
   
-    width: 80%;
+    width: 85%;
     height: 45px;
     border: none;
     outline: none;
     background: none;
-    font-size: 20px;
+    font-size: 10px;
   
-    padding: 5px 5px 5px 20px;
+    padding: 0.5em 1em 0.5em 1em;
     box-shadow: inset 8px 8px 8px #cbced1,
                 inset -8px -8px 8px #ffffff;
-    border-radius: 20px;
-    color: black;
-    font-size: 18px !important;
+    border-radius: 1.2em;
+    color: rgb(95, 93, 93);
+    font-size: 1em !important;
     transition: all 0.3s ease;
 
     overflow-x: auto; /* Enable horizontal scrolling */
@@ -55,25 +61,25 @@ body{
     width: 350px;
   }
   .button .wrap{
-    font-size: 17px;
+    font-size: 1.25em;
   }
 
   fieldset {
-    border: 4px solid #71797E;  /* Set border color for the fieldset */
-    padding: 5px;
-    width: 150px;
-    margin: 15px auto;
-    border-radius: 6px;
+    border: 0.3em solid #71797E;  /* Set border color for the fieldset */
+    padding: 0.5em;
+    width: 3em;
+    margin: 0em auto;
+    border-radius: 0.8em;
   }
 
   .settings-container {
     display: flex;
     flex-direction: column;
-    gap: 25px; /* Space between rows */
-    padding: 25px 85px;
+    
+    padding: 0.7em 4em;
     font-family: "Manrope", serif;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 1em;
     color: #4d5255;
     padding-left: 0px;
     
@@ -82,26 +88,32 @@ body{
   .settings-row {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 18em;
     align-items: start;
+    margin-top: -1em;
+    
   }
   
-  .setting-item {
+  /* .setting-item {
     display: flex;
     align-items: start;
-    gap: 10px; /* Space between label and input */
-    width: 250px;
+    gap: 1em; 
+    width: 12em;
     padding-left: 0px;
     justify-content: space-between;
-  }
+  } */
   
   .setting-item {
     display: flex;
     align-items: center;
-    gap: 10px;
+    /* gap: 1.6em; */
     position: relative;
-    width: 350px;
+    width: 19em;
     justify-content: space-between;
+    margin-top: 1em;
+    font-weight: 700;
+    color: black;
+    font-size: large;
   }
   /* Hide the default checkbox */
   .checkbox {
@@ -110,8 +122,8 @@ body{
   
   /* Custom checkbox design */
   .custom-checkbox {
-    width: 24px;
-    height: 24px;
+    width: 1.375em;
+    height: 1.375em;
     border-radius: 6px;
     border: 2px solid #ccc;
     background-color: white;
@@ -237,5 +249,8 @@ body{
     background-color: #b4f19c;
   }
 
+    .legend-style{
+        margin-top: 50px;
+    }
 
 }
