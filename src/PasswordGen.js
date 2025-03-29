@@ -15,6 +15,7 @@ function PasswordGen() {
     const [allowLowerCase, setallowLowerCase] = useState(true);
     const [allowSymbols, setAllowSymbols] = useState(true);
     const [generatedPswd, setGeneratedPswd] = useState("Click the button to generate a strong password");
+    const [passwordGenerated, setPasswordGenerated] = useState(false);
 
 
     function handleCheckboxChange(e) {
@@ -66,10 +67,12 @@ function PasswordGen() {
         if(password.includes("undefined"))
         {
             setGeneratedPswd("Unable to create a password with 1 or fewer available characters");
+            setPasswordGenerated(false);
         }
         else{
             
             setGeneratedPswd(password)
+            setPasswordGenerated(true);
         }
         
        
@@ -77,24 +80,28 @@ function PasswordGen() {
     }
 
     useEffect(() => {
-        if (generatedPswd && inputRef.current) {
+        if (generatedPswd && inputRef.current && passwordGenerated) {
           inputRef.current.select(); // Select the input field text
 
           navigator.clipboard.writeText(generatedPswd) // Copy to clipboard
         .then(() => {
-          toast.success("Password copied to clipboard! 🎉", {
-            position: "top-right",
-            autoClose: 500, // Close af 2 seconds
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: false,
-            draggable: true,
-            theme: "light",
-          });
+
+            
+                toast.success("Password copied to clipboard! 🎉", {
+                    position: "top-right",
+                    autoClose: 800, // Close af 2 seconds
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    theme: "light",
+                  });
+            
+          
         })
         .catch(err => console.error("Failed to copy:", err));
         }
-      }, [generatedPswd]);
+      }, [generatedPswd,passwordGenerated]);
 
 
     return (
