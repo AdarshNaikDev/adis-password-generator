@@ -1,4 +1,7 @@
 
+
+
+
 /* Mobile view CSS below */
 
 @media screen and (max-width: 700px)
@@ -17,12 +20,14 @@ body{
   max-width: 100%;
   margin: 0 auto;
   height: 100vh;
+  background-size: cover;
+  min-height: 100vh;
 }
 
   .main-title{
-    margin-top: 20px;
+    margin-top: 1.25em;
     font-size: 2.5em;
-    font-weight: 500;
+    font-weight: 600;
    
   }
 
@@ -31,13 +36,12 @@ body{
   }
 
   .text-pswd{
-  
     width: 85%;
-    height: 45px;
+    height: 2.8125em;
     border: none;
     outline: none;
     background: none;
-    font-size: 10px;
+    font-size: 0.625em;
   
     padding: 0.5em 1em 0.5em 1em;
     box-shadow: inset 8px 8px 8px #cbced1,
@@ -59,7 +63,7 @@ body{
   }
 
   .button{
-    width: 350px;
+    width: 25.8em;
   }
   .button .wrap{
     font-size: 1.25em;
@@ -82,14 +86,14 @@ body{
     font-weight: 500;
     font-size: 1em;
     color: #4d5255;
-    padding-left: 0px;
+    padding-left: 0em;
     
   }
   
   .settings-row {
     display: flex;
     flex-direction: column;
-    width: 18em;
+    width: 17em;
     align-items: start;
     margin-top: -1em;
     
@@ -109,7 +113,7 @@ body{
     align-items: center;
     /* gap: 1.6em; */
     position: relative;
-    width: 19em;
+    width: 18em;
     justify-content: space-between;
     margin-top: 1em;
     font-weight: 700;
@@ -125,7 +129,7 @@ body{
   .custom-checkbox {
     width: 1.375em;
     height: 1.375em;
-    border-radius: 6px;
+    border-radius: 0.375em;
     border: 2px solid #ccc;
     background-color: white;
     position: relative;
@@ -251,7 +255,7 @@ body{
   }
 
     .legend-style{
-        margin-top: 50px;
+        margin-top: 3em;
     }
 
 }
