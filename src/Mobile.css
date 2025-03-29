@@ -3,18 +3,34 @@
 
 @media screen and (max-width: 700px)
 {
+body{
+    margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.main-div{
+    
+    width: 100vw; /* Viewport width */
+  max-width: 100%;
+  margin: 0 auto;
+}
+
   .main-title{
     font-size: 55px;
+   
   }
 
   .text-pswd{
   
-    width: 400px;
+    width: 80%;
     height: 45px;
     border: none;
     outline: none;
     background: none;
-    font-size: 25px;
+    font-size: 20px;
   
     padding: 5px 5px 5px 20px;
     box-shadow: inset 8px 8px 8px #cbced1,
@@ -59,7 +75,7 @@
     font-weight: 500;
     font-size: 16px;
     color: #4d5255;
-    padding-left: 35px;
+    padding-left: 0px;
     
   }
   
