@@ -149,7 +149,7 @@ function PasswordGen() {
 
                             </div>
                             <div className="setting-item ">
-                                Allow Numbers
+                                Allow Numbers (123)
                                 <input type="checkbox"
                                     className="checkbox"
                                     id="allowNumbers"
@@ -189,7 +189,7 @@ function PasswordGen() {
                         {/* Third Row */}
                         <div className="settings-row">
                             <div className="setting-item">
-                                Allow Symbols (!@#$%^&*()+)
+                                Allow Special characters (!@#)
 
                                 <input
                                     type="checkbox"
