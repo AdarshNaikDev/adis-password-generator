@@ -18,6 +18,7 @@
         height: 100vh;
         background-size: cover;
         min-height: 100vh;
+        background-attachment: fixed;
     }
 
     .main-title {
@@ -260,7 +261,9 @@
     }
 
     body {
-        background-color: #b4f19c;
+       
+        background-size: cover;
+        background-color: #e0e5eb;
     }
 
     .legend-style {
@@ -314,5 +317,7 @@
     .settings-row{
         width: 14em;
     }
+
+
 
 }
