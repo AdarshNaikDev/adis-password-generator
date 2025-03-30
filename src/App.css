@@ -21,7 +21,7 @@
 
 .button {
   --white: #ffe7ff;
-  --bg: #080808;
+  --bg: #01033E;
   --radius: 100px;
   outline: none;
   cursor: pointer;
@@ -195,7 +195,7 @@
 
 
 fieldset {
-  border: 4px solid #71797E;  /* Set border color for the fieldset */
+  border: 4px solid #007bff;;  /* Set border color for the fieldset */
   padding: 10px;
   width: 700px;
   margin: 30px auto;
