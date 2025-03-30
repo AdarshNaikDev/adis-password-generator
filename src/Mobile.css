@@ -1,105 +1,108 @@
-
-
-
-
 /* Mobile view CSS below */
 
-@media screen and (max-width: 700px)
-{
-body{
-    margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-}
+@media screen and (max-width: 700px) {
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+    }
 
-.main-div{
-    
-    width: 100vw; /* Viewport width */
-  max-width: 100%;
-  margin: 0 auto;
-  height: 100vh;
-  background-size: cover;
-  min-height: 100vh;
-}
+    .main-div {
 
-  .main-title{
-    margin-top: 1.25em;
-    font-size: 2.5em;
-    font-weight: 600;
-   
-  }
+        width: 100vw;
+        /* Viewport width */
+        max-width: 100%;
+        margin: 0 auto;
+        height: 100vh;
+        background-size: cover;
+        min-height: 100vh;
+    }
 
-  .input-text{
-    margin-top: 2.5em;
-  }
+    .main-title {
+        margin-top: 1.25em;
+        font-size: 2.5em;
+        font-weight: 600;
+        color: white;
+        color: #007bff;
 
-  .text-pswd{
-    width: 85%;
-    height: 2.8125em;
-    border: none;
-    outline: none;
-    background: none;
-    font-size: 0.625em;
-  
-    padding: 0.5em 1em 0.5em 1em;
-    box-shadow: inset 8px 8px 8px #cbced1,
-                inset -8px -8px 8px #ffffff;
-    border-radius: 1.2em;
-    color: rgb(95, 93, 93);
-    font-size: 1em !important;
-    transition: all 0.3s ease;
+    }
 
-    overflow-x: auto; /* Enable horizontal scrolling */
-    white-space: nowrap; /* Prevent text from wrapping */
-    text-overflow: ellipsis; /* Show "..." when overflowing */
-    
-  }
+    .input-text {
+        margin-top: 2.5em;
+    }
 
-  .text-pswd:focus{
-    color: #555;
-    font-size: x-large;
-  }
+    .text-pswd {
+        width: 85%;
+        height: 2.8125em;
+        border: none;
+        outline: none;
+        background: none;
+        font-size: 0.625em;
 
-  .button{
-    width: 25.8em;
-  }
-  .button .wrap{
-    font-size: 1.25em;
-  }
+        padding: 0.5em 1em 0.5em 1em;
+        box-shadow: inset 8px 8px 8px #cbced1,
+            inset -8px -8px 8px #ffffff;
+        border-radius: 1.2em;
+        color: rgb(95, 93, 93);
+        font-size: 1em !important;
+        transition: all 0.3s ease;
 
-  fieldset {
-    border: 0.3em solid #71797E;  /* Set border color for the fieldset */
-    padding: 0.5em;
-    width: 3em;
-    margin: 0em auto;
-    border-radius: 0.8em;
-  }
+        overflow-x: auto;
+        /* Enable horizontal scrolling */
+        white-space: nowrap;
+        /* Prevent text from wrapping */
+        text-overflow: ellipsis;
+        /* Show "..." when overflowing */
 
-  .settings-container {
-    display: flex;
-    flex-direction: column;
-    
-    padding: 0.7em 4em;
-    font-family: "Manrope", serif;
-    font-weight: 500;
-    font-size: 1em;
-    color: #4d5255;
-    padding-left: 0em;
-    
-  }
-  
-  .settings-row {
-    display: flex;
-    flex-direction: column;
-    width: 17em;
-    align-items: start;
-    margin-top: -1em;
-    
-  }
-  
-  /* .setting-item {
+    }
+
+    .text-pswd:focus {
+        color: #555;
+        font-size: x-large;
+    }
+
+    .button {
+        width: 25.8em;
+    }
+
+    .button .wrap {
+        font-size: 1.25em;
+    }
+
+    fieldset {
+        border: 0.3em solid #71797E;
+        /* Set border color for the fieldset */
+        padding: 0.5em;
+        width: 3em;
+        margin: 0em auto;
+        border-radius: 0.8em;
+    }
+
+    .settings-container {
+        display: flex;
+        flex-direction: column;
+
+        padding: 0.7em 4em;
+        font-family: "Manrope", serif;
+        font-weight: 500;
+        font-size: 1em;
+        color: #4d5255;
+        padding-left: 0em;
+
+    }
+
+    .settings-row {
+        display: flex;
+        flex-direction: column;
+        width: 17em;
+        align-items: start;
+        margin-top: -1em;
+
+    }
+
+    /* .setting-item {
     display: flex;
     align-items: start;
     gap: 1em; 
@@ -107,155 +110,209 @@ body{
     padding-left: 0px;
     justify-content: space-between;
   } */
-  
-  .setting-item {
-    display: flex;
-    align-items: center;
-    /* gap: 1.6em; */
-    position: relative;
-    width: 18em;
-    justify-content: space-between;
-    margin-top: 1em;
-    font-weight: 700;
-    color: black;
-    font-size: large;
-  }
-  /* Hide the default checkbox */
-  .checkbox {
-    display: none;
-  }
-  
-  /* Custom checkbox design */
-  .custom-checkbox {
-    width: 1.375em;
-    height: 1.375em;
-    border-radius: 0.375em;
-    border: 2px solid #ccc;
-    background-color: white;
-    position: relative;
-    cursor: pointer;
-    transition: background-color 0.3s, border-color 0.3s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* Checkmark (hidden by default) */
-  .custom-checkbox::before {
-    content: "✔";
-    font-size: 16px;
-    color: white;
-    opacity: 0;
-    transform: scale(0);
-    transition: opacity 0.2s ease-in, transform 0.2s ease-in;
-  }
-  
-  /* Flashing circle animation (hidden initially) */
-  .custom-checkbox::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 10px;
-    height: 10px;
-    background: rgba(0, 123, 255, 0.4);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-  }
-  
-  /* When checked, change background, show checkmark */
-  .checkbox:checked + .custom-checkbox {
-    background-color: #007bff;
-    border-color: #007bff;
-  }
-  
-  /* Show checkmark */
-  .checkbox:checked + .custom-checkbox::before {
-    opacity: 1;
-    transform: scale(1);
-  }
-  
-  /* Flash effect (circle disappears after animation) */
-  .checkbox:checked + .custom-checkbox::after {
-    animation: flashEffect 0.4s ease-out;
-  }
-  
-  @keyframes flashEffect {
-    0% {
-      width: 10px;
-      height: 10px;
-      opacity: 1;
-    }
-    100% {
-      width: 40px;
-      height: 40px;
-      opacity: 0;
-      display: none; /* Circle disappears completely */
-    }
-  }
-  
-  .drop-down {
-    appearance: none; /* Removes default dropdown styling */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    
-    width: 70px;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 10px;
-    background: #e0e5ec; /* Neumorphic background */
-    border: none;
-    outline: none;
-    cursor: pointer;
-    box-shadow: 6px 6px 10px #b8b8b8, -6px -6px 10px #ffffff;
-    transition: all 0.3s ease;
-  }
-  
-  /* When dropdown is clicked */
-  .drop-down:focus {
-    box-shadow: inset 6px 6px 10px #b8b8b8, inset -6px -6px 10px #ffffff;
-  }
-  
-  /* Dropdown arrow styling */
-  .drop-down::after {
-    content: "▼";
-    color: black;
-    position: absolute;
-    right: 15px;
-    pointer-events: none;
-  }
-  
-  /* Dropdown option styles */
-  .drop-down option {
-    background: #e0e5ec;
-    color: #333;
-    padding: 10px;
-  }
-  
-  .neumorphic-dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .neumorphic-dropdown::after {
-    content: "▼"; /* Unicode for dropdown arrow */
-    font-size: 14px;
-    color: #666;
-    position: absolute;
-    top: 50%;
-    right: 15px;
-    transform: translateY(-50%);
-    pointer-events: none;
-  }
 
-  body{
-    background-color: #b4f19c;
-  }
+    .setting-item {
+        display: flex;
+        align-items: center;
+        /* gap: 1.6em; */
+        position: relative;
+        width: 18em;
+        justify-content: space-between;
+        margin-top: 1em;
+        font-weight: 700;
+        color: black;
+        font-size: large;
+    }
 
-    .legend-style{
+    /* Hide the default checkbox */
+    .checkbox {
+        display: none;
+    }
+
+    /* Custom checkbox design */
+    .custom-checkbox {
+        width: 1.375em;
+        height: 1.375em;
+        border-radius: 0.375em;
+        border: 2px solid #ccc;
+        background-color: white;
+        position: relative;
+        cursor: pointer;
+        transition: background-color 0.3s, border-color 0.3s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Checkmark (hidden by default) */
+    .custom-checkbox::before {
+        content: "✔";
+        font-size: 16px;
+        color: white;
+        opacity: 0;
+        transform: scale(0);
+        transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+    }
+
+    /* Flashing circle animation (hidden initially) */
+    .custom-checkbox::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 10px;
+        height: 10px;
+        background: rgba(0, 123, 255, 0.4);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+    }
+
+    /* When checked, change background, show checkmark */
+    .checkbox:checked+.custom-checkbox {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    /* Show checkmark */
+    .checkbox:checked+.custom-checkbox::before {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    /* Flash effect (circle disappears after animation) */
+    .checkbox:checked+.custom-checkbox::after {
+        animation: flashEffect 0.4s ease-out;
+    }
+
+    @keyframes flashEffect {
+        0% {
+            width: 10px;
+            height: 10px;
+            opacity: 1;
+        }
+
+        100% {
+            width: 40px;
+            height: 40px;
+            opacity: 0;
+            display: none;
+            /* Circle disappears completely */
+        }
+    }
+
+    .drop-down {
+        appearance: none;
+        /* Removes default dropdown styling */
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
+        width: 70px;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 10px;
+        background: #e0e5ec;
+        /* Neumorphic background */
+        border: none;
+        outline: none;
+        cursor: pointer;
+        box-shadow: 6px 6px 10px #b8b8b8, -6px -6px 10px #ffffff;
+        transition: all 0.3s ease;
+    }
+
+    /* When dropdown is clicked */
+    .drop-down:focus {
+        box-shadow: inset 6px 6px 10px #b8b8b8, inset -6px -6px 10px #ffffff;
+    }
+
+    /* Dropdown arrow styling */
+    .drop-down::after {
+        content: "▼";
+        color: black;
+        position: absolute;
+        right: 15px;
+        pointer-events: none;
+    }
+
+    /* Dropdown option styles */
+    .drop-down option {
+        background: #e0e5ec;
+        color: #333;
+        padding: 10px;
+    }
+
+    .neumorphic-dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .neumorphic-dropdown::after {
+        content: "▼";
+        /* Unicode for dropdown arrow */
+        font-size: 14px;
+        color: #666;
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        pointer-events: none;
+    }
+
+    body {
+        background-color: #b4f19c;
+    }
+
+    .legend-style {
         margin-top: 3em;
+    }
+
+}
+
+
+@media screen and (max-height: 719px) {
+    .main-title {
+        
+        margin-top: 0.4em;
+        font-size: 2.2em;
+        font-weight: 600;
+        
+        color: #007bff;
+    }
+
+    .input-text {
+        margin-top: 1em;
+    }
+
+    .btn-position{
+        margin-top: -1.2em;
+    }
+
+    .setting-item{
+        width: 16em;
+    }
+
+    .settings-row{
+        width: 16em;
+    }
+
+    fieldset{
+            margin-top: -1.3em;
+           
+    }
+}
+
+@media screen and (max-width: 345px){
+    .setting-item{
+        width: 14em;
+    }
+
+    .button {
+        width: 22.8em;
+    }
+
+    .settings-row{
+        width: 14em;
     }
 
 }
