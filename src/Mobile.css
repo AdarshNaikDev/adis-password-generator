@@ -17,14 +17,20 @@
         background-size: cover;
         min-height: 100vh;
         background-attachment: fixed;
+        margin-bottom: 2em;
     }
 
     .main-title {
         margin-top: 1.25em;
         font-size: 2.5em;
-        font-weight: 600;
+        font-weight: bold;
         color: white;
         color: #007bff;
+        
+        text-shadow: 
+        -8px -8px 12px white,
+        8px 8px 12px white;
+        caret-color:#ffff;
 
     }
 
@@ -75,8 +81,11 @@
         /* Set border color for the fieldset */
         padding: 0.5em;
         width: 3em;
-        margin: 0em auto;
+        margin: 1em auto;
         border-radius: 0.8em;
+        display: block;
+      
+
     }
 
     .settings-container {
