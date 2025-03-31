@@ -1,216 +1,164 @@
-import React, { useState, useEffect, useRef } from 'react'
-import Button from './Componenets/Button'
+import React, { useState, useEffect, useRef } from "react";
+import Button from "./Components/Button";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function PasswordGen() {
+    const inputRef = useRef(null);
 
-    const inputRef = useRef(null); 
+    const otpLen = Array.from({ length: 60 }, (_, i) => i + 6);
 
-    const otpLen = [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65]
+    const [settings, setSettings] = useState({
+        length: otpLen[4],
+        allowNumbers: true,
+        allowUpperCase: true,
+        allowLowerCase: true,
+        allowSymbols: true,
+    });
 
-    const [selectedPswdLen, setSelectedPswdLen] = useState(otpLen[4]);
-    const [allowNumbers, setallowNumbers] = useState(true);
-    const [allowUpperCase, setallowUpperCase] = useState(true);
-    const [allowLowerCase, setallowLowerCase] = useState(true);
-    const [allowSymbols, setAllowSymbols] = useState(true);
-    const [generatedPswd, setGeneratedPswd] = useState("Click the button to generate a strong password");
+    const [password, setPassword] = useState("Click the button to generate a strong password");
     const [passwordGenerated, setPasswordGenerated] = useState(false);
 
+    const handleCheckboxChange = (e) => {
+        const { id, checked } = e.target;
+        setSettings((prev) => ({ ...prev, [id]: checked }));
+    };
 
-    function handleCheckboxChange(e) {
-        if (e.target.id === "allowNumbers") {
-            //console.log("allow numbers")
-            setallowNumbers(e.target.checked)
-        }
-        else if (e.target.id === "allowUpperCase") {
-            //console.log("allow upper case")
-            setallowUpperCase(e.target.checked);
-        }
-        else if (e.target.id === "allowLowerCase") {
-            //console.log("allow lower case")
-            setallowLowerCase(e.target.checked);
-        }
-        else if (e.target.id === "allowSymbols") {
-            //console.log("allow symbols")
-            setAllowSymbols(e.target.checked);
-        }
+    const genPassword = () => {
+        const charSets = {
+            allowNumbers: "0123456789",
+            allowUpperCase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            allowLowerCase: "abcdefghijklmnopqrstuvwxyz",
+            allowSymbols: "!@#$%^&*()_+-=[]{}|;:<>?",
+        };
 
+        let allowedChars = Object.entries(charSets)
+            .filter(([key]) => settings[key])
+            .map(([, value]) => value)
+            .join("");
 
-    }
-
-
-    function genPassword() {
-
-        const numbers = "0123456789";
-        const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        const lowercase = "abcdefghijklmnopqrstuvwxyz";
-        const symbols = "!@#$%^&*()_+-=[]{}|;:<>?";
-
-        let allowedChars = "";
-        if (allowNumbers) allowedChars += numbers;
-        if (allowUpperCase) allowedChars += uppercase;
-        if (allowLowerCase) allowedChars += lowercase;
-        if (allowSymbols) allowedChars += symbols;
-
-        if (allowedChars.length === 0) {
-            //alert("Unable to create a password with 1 or fewer available characters");
-            setGeneratedPswd("Unable to create a password with 1 or fewer available characters");
-        }
-
-        let password = "";
-        for (let i = 0; i < selectedPswdLen; i++) {
-            const randomIndex = Math.floor(Math.random() * allowedChars.length);
-            password += allowedChars[randomIndex];
-        }
-        console.log("Your Password : ", password);
-        if(password.includes("undefined"))
-        {
-            setGeneratedPswd("Unable to create a password with 1 or fewer available characters");
+        if (!allowedChars) {
+            setPassword("Select at least one character type!");
             setPasswordGenerated(false);
+            return;
         }
-        else{
-            
-            setGeneratedPswd(password)
-            setPasswordGenerated(true);
-        }
-        
-       
 
-    }
+        const newPassword = Array.from({ length: settings.length }, () =>
+            allowedChars.charAt(Math.floor(Math.random() * allowedChars.length))
+        ).join("");
+
+        setPassword(newPassword);
+        setPasswordGenerated(true);
+    };
 
     useEffect(() => {
-        if (generatedPswd && inputRef.current && passwordGenerated) {
-          inputRef.current.select(); // Select the input field text
-
-          navigator.clipboard.writeText(generatedPswd) // Copy to clipboard
-        .then(() => {
-
-            
+        if (passwordGenerated && inputRef.current) {
+            inputRef.current.select();
+            navigator.clipboard.writeText(password).then(() => {
                 toast.success("Password copied to clipboard! 🎉", {
                     position: "top-right",
-                    autoClose: 800, // Close af 2 seconds
+                    autoClose: 800,
                     hideProgressBar: true,
                     closeOnClick: true,
                     pauseOnHover: false,
                     draggable: true,
                     theme: "light",
-                  });
-            
-          
-        })
-        .catch(err => console.error("Failed to copy:", err));
+                });
+            }).catch(err => console.error("Failed to copy:", err));
         }
-      }, [generatedPswd,passwordGenerated]);
-
+    }, [passwordGenerated]);
 
     return (
-        <div className='main-div' >
-            <div className='sec-one'>
-                <div className='header-div'>
-                    <span className="main-title">ADI's PASSWORD </span>
+        <div className="main-div">
+            <div className="sec-one">
+                <div className="header-div">
+                    <span className="main-title">ADI's PASSWORD</span>
                 </div>
-                <div className='input-text'>
-                    <input type='text'
-                     placeholder='Click the button to generate a strong password' 
-                     className='text-pswd' 
+                <div className="input-text">
+                    <input
+                        type="text"
+                        placeholder="Click the button to generate a strong password"
+                        className="text-pswd"
                         readOnly
-                        value={generatedPswd}
+                        value={password}
                         ref={inputRef}
-                     />
+                    />
                 </div>
             </div>
 
-            <div className='btn-position'>
+            <div className="btn-position">
                 <Button btnName="Generate Random Password" genPassword={genPassword} />
             </div>
-            <div className='legend-style'>
+
+            <div className="legend-style">
                 <fieldset>
                     <legend>Settings</legend>
 
-
                     <div className="settings-container">
-                        {/* First Row */}
                         <div className="settings-row">
-                            <div className="setting-item ">
-                                Password length
-                                <div className='neumorphic-dropdown'>
-                                    <select className=" cursoor drop-down" value={selectedPswdLen}
-                                        onChange={(e) => setSelectedPswdLen(Number(e.target.value))}
-                                    >
-                                        {
-                                            otpLen.map((item, ind) => {
-                                                return <option key={ind}>{item}</option>
-                                            })
-                                        }
-
-                                    </select>
-                                </div>
-
-                            </div>
-                            <div className="setting-item ">
-                                Allow Numbers (123)
-                                <input type="checkbox"
-                                    className="checkbox"
-                                    id="allowNumbers"
-                                    onChange={handleCheckboxChange}
-                                    checked={allowNumbers}
-                                />
-                                <label htmlFor="allowNumbers" className="custom-checkbox"></label>
-                            </div>
+                            <SettingItem label="Password length">
+                                <select
+                                    className="cursor drop-down"
+                                    value={settings.length}
+                                    onChange={(e) => setSettings({ ...settings, length: Number(e.target.value) })}
+                                >
+                                    {otpLen.map((len) => (
+                                        <option key={len} value={len}>{len}</option>
+                                    ))}
+                                </select>
+                            </SettingItem>
+                            <CheckboxSetting
+                                id="allowNumbers"
+                                label="Allow Numbers (123)"
+                                checked={settings.allowNumbers}
+                                onChange={handleCheckboxChange}
+                            />
                         </div>
 
-                        {/* Second Row */}
                         <div className="settings-row">
-                            <div className="setting-item ">
-                                Allow Uppercase (ABC)
-
-                                <input type="checkbox"
-                                    className="checkbox"
-                                    id="allowUpperCase"
-                                    onChange={handleCheckboxChange}
-                                    checked={allowUpperCase}
-                                />
-                                <label htmlFor="allowUpperCase" className="custom-checkbox"></label>
-                            </div>
-                            <div className="setting-item ">
-                                Allow Lowercase (abc)
-
-                                <input
-                                    type="checkbox"
-                                    className="checkbox"
-                                    id="allowLowerCase"
-                                    onChange={handleCheckboxChange}
-                                    checked={allowLowerCase} />
-                                <label htmlFor="allowLowerCase" className="custom-checkbox"></label>
-                            </div>
+                            <CheckboxSetting
+                                id="allowUpperCase"
+                                label="Allow Uppercase (ABC)"
+                                checked={settings.allowUpperCase}
+                                onChange={handleCheckboxChange}
+                            />
+                            <CheckboxSetting
+                                id="allowLowerCase"
+                                label="Allow Lowercase (abc)"
+                                checked={settings.allowLowerCase}
+                                onChange={handleCheckboxChange}
+                            />
                         </div>
 
-                        {/* Third Row */}
                         <div className="settings-row">
-                            <div className="setting-item">
-                                Allow Special characters (!@#)
-
-                                <input
-                                    type="checkbox"
-                                    className="checkbox"
-                                    id="allowSymbols"
-                                    onChange={handleCheckboxChange}
-                                    checked={allowSymbols} />
-                                <label htmlFor="allowSymbols" className="custom-checkbox"></label>
-                            </div>
-
+                            <CheckboxSetting
+                                id="allowSymbols"
+                                label="Allow Special Characters (!@#)"
+                                checked={settings.allowSymbols}
+                                onChange={handleCheckboxChange}
+                            />
                         </div>
                     </div>
-
-
                 </fieldset>
             </div>
             <ToastContainer  />
-
-
         </div>
-    )
+    );
 }
 
-export default PasswordGen
+const SettingItem = ({ label, children }) => (
+    <div className="setting-item">
+        {label}
+        {children}
+    </div>
+);
+
+const CheckboxSetting = ({ id, label, checked, onChange }) => (
+    <div className="setting-item">
+        {label}
+        <input type="checkbox" className="checkbox" id={id} onChange={onChange} checked={checked} />
+        <label htmlFor={id} className="custom-checkbox"></label>
+    </div>
+);
+
+export default PasswordGen;
